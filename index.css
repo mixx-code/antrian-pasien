@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    text-decoration: none;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+}
+
+#container .navbar{
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+    background-color: rgba(238, 255, 132, 1);
+    color: rgba(123, 118, 2, 1);
+    font-size: 16px;
+    box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.12);
+-moz-box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.12);
+
+}
+#container .banner{
+    width: 100%;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(190, 249, 63, 1);
+    align-items: center;
+    justify-content: center;
+}
+
+#container .banner .puskesmas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#container .banner .puskesmas .nama-puskesmas img{
+    width: 50px;
+}
+#container .banner .puskesmas .nama-puskesmas{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#container .banner .puskesmas .nama-puskesmas p{    
+    margin-bottom: 0px;
+}
+#container .banner .puskesmas p{
+    text-align: center;
+    color: rgba(123, 118, 2, 1);
+    margin-bottom: 20px;
+}
+#container .banner .btn{
+    width: 100px;
+    height: 45px;
+    background-color: rgba(255, 247, 49, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+}
+#container .banner .login{
+    margin-bottom: 20px;
+}
+#container .banner .login a{
+    color: rgba(56, 54, 10, 1);
+    font-weight: bold;
+}
+#container .banner p{
+    color: rgba(123, 118, 2, 0.57);
+}
+#container .banner2 {
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
+    justify-content: center;
+    align-items: center;
+}
+#container .banner2 .text1 p {
+    color: rgba(123, 118, 2, 1);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    padding: 0px 15px 0px 15px;
+}
+#container .banner2 .btn{
+        width: 130px;
+            height: 45px;
+            background-color: rgba(255, 247, 49, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+            box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+            -webkit-box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+            -moz-box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+}
+#container .banner2 .registrasi {
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+#container .banner2 .text2{
+    text-align: center;
+    font-size: 13px;
+    color: rgba(123, 118, 2, 0.57);
+}
