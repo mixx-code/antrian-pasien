@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include './koneksi.php';
+include '../../config/koneksi.php';
 
 if (isset($_SESSION['poli'])) {
     $selectedValue = $_SESSION['poli'];
@@ -17,7 +17,13 @@ if (isset($_SESSION['poli'])) {
         $total_data = 0;
         $no_antrian = $total_data + 1;
     }
+} else {
+    $selectedValue = "PLGG";
 }
+$tanggal_sekarang = date('Y-m-d');
+$new_date = date("Y-m-d", strtotime($tanggal_sekarang));
+$tanggal_besok = date('m-d-Y', strtotime('+1 day'));
+$nik = $_SESSION['nik'];
 ?>
 
 
@@ -28,16 +34,20 @@ if (isset($_SESSION['poli'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="antrian.css">
     <title>Document</title>
 </head>
 
 <body>
+    <!-- <h1><?= $tanggal_sekarang ?></h1>
+    <h1><?= $tanggal_besok ?></h1> -->
 
-    <form action="proses_antrian.php" method="POST">
-        <div>
+    <div class="container">
+        <form class="form-antrian" action="proses_antrian.php" method="POST">
             <div>
-                <label for="">Pilih poli</label><br>
+                <label for="">Pilih poli</label>
                 <select name="poli" id="poli">
+                    <option disabled>Pilih POLI UNTUK MENDAPAT ANTRIAN</option>
                     <option value="PLGG" <?php if ($selectedValue == "PLGG") echo "selected"; ?>>PLGG</option>
                     <option value="PLUM" <?php if ($selectedValue == "PLUM") echo "selected"; ?>>PLUM</option>
                     <option value="PLIM" <?php if ($selectedValue == "PLIM") echo "selected"; ?>>PLIM</option>
@@ -46,23 +56,29 @@ if (isset($_SESSION['poli'])) {
             </div>
             <div>
                 <label for="">No Antrian</label>
-                <br>
-                <input type="text" name="no_antrian" id="no_antrian" value="<?= $no_antrian ?>" readonly>
+                <input type="text" name="no_antrian" id="no_antrian" value="<?= isset($no_antrian) ? $no_antrian : '' ?>" readonly>
             </div>
             <div>
-                <label for="">nama</label>
-                <br>
-                <input type="text" name="nama" id="nama" value="">
+                <input type="text" name="nik" id="nama" value="<?= $nik ?>">
             </div>
             <div>
+                <input type="text" name="tanggal" id="tanggal" value="<?= $new_date  ?>">
+            </div>
+            <div class="btn_antrian">
                 <button type="submit">Ambil Antrian</button>
+                <a href="#">Cetak</a>
+                <a class="kembali" href="../login/">X</a>
             </div>
-        </div>
-    </form>
+        </form>
+
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script>
         // Ambil element select
         const selectPoli = document.querySelector("#poli");
+
+
+
 
         // Tambah event listener untuk saat value berubah
         selectPoli.addEventListener("change", function() {

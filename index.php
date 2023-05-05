@@ -23,7 +23,7 @@
                 <p>Selamat Datang di Pendaftaran Online Pasien Puskesmas Caringin</p>
             </div>
             <div class="btn login">
-                <a href="">Login</a>
+                <a href="./src/pages/login/">Login</a>
             </div>
             <div>
                 <p>Klik Login > Pilih Poli > Cetak</p>
@@ -34,7 +34,7 @@
                 <p>Silahkan Lakukan Registrasi terlebih dahulu, jika Anda belum memiliki akun</p>
             </div>
             <div class="btn registrasi">
-                <a href="">Registrasi</a>
+                <a href="./src/pages/registrasi/">Registrasi</a>
             </div>
             <div class="text2">
                 <p>Registrasi > Input Data diri > Klik Login > Pilih Poli > Cetak</p>

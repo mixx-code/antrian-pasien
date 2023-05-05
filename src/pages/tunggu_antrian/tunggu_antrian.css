@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 300px;
+}
+h1{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.card{
+    background-color: rgba(246, 255, 138, 1);
+    padding: 20px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.antrian{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.antrian p{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.antrian p span{
+    font-weight: bold;
+    font-size: 23px;
+}
+.antrian hr{
+    margin-bottom: 10px;
+}

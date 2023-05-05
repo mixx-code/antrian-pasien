@@ -106,10 +106,15 @@
             box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
             -webkit-box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
             -moz-box-shadow: 1px -1px 41px 3px rgba(0, 0, 0, 0.25);
+            
 }
-#container .banner2 .registrasi {
+#container .banner2 .registrasi{
     margin-bottom: 40px;
     font-weight: bold;
+    color: rgba(56, 54, 10, 1);
+}
+#container .banner2 .registrasi a{
+    color: rgba(56, 54, 10, 1);
 }
 
 #container .banner2 .text2{
