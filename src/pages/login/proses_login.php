@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-
+        $role = $row['role'];
         // memverifikasi password
         if (password_verify($password, $row["password"])) {
             // menyimpan informasi login ke session
@@ -25,9 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // redirect ke halaman utama setelah login
             echo "<script>alert('Selamat datang " . $username . " 🫡')</script>";
-            header('Location: ../antrian/antrian.php');
-            echo "<meta http-equiv='refresh' content='0; url= ../antrian/antrian.php";
-            exit();
+            if ($role  == 'admin') {
+                header('Location: ../dashboard_admin/?page=home');
+                echo "<meta http-equiv='refresh' content='0; url= ../dashboard_admin/?page=home";
+                exit();
+            } else {
+                header('Location: ../dashboard_user/');
+                echo "<meta http-equiv='refresh' content='0; url= ../dashboard_user/";
+                exit();
+            }
         } else {
             // jika password tidak cocok
             echo "<script>alert('password salah !!!')</script>";

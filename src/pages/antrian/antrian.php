@@ -5,24 +5,47 @@ include '../../config/koneksi.php';
 
 if (isset($_SESSION['poli'])) {
     $selectedValue = $_SESSION['poli'];
+    $_SESSION['poli'] = $selectedValue;
+    // set session variable
+    $_SESSION['poli'] = $selectedValue;
+
+    // tutup session
+    session_write_close();
     // melakukan operasi lain jika key 'poli' sudah ada di dalam $_SESSION
-    $sql = "SELECT COUNT(*) AS total FROM antrian WHERE poli = '$selectedValue'";;
+    $maksimal_antrian = "SELECT jumlah_maksimal FROM poli";
+    $query = mysqli_query($conn, $maksimal_antrian);
+    $data = mysqli_fetch_assoc($query);
+    $jumlah_maksimal = $data['jumlah_maksimal'];
+    $sql = "SELECT COUNT(*) AS total, no_antrian FROM antrian WHERE poli = '$selectedValue'";
     $result = mysqli_query($conn, $sql);
     // Mengambil jumlah data
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $total_data = $row["total"];
-        $no_antrian = $total_data + 1;
+        $no_antrian_sekarang = $row["no_antrian"];
+        // jika no_antrian lebih dari 15 maka akan di mulai dari 1 lagi
+        if ($no_antrian_sekarang >= $jumlah_maksimal) {
+            $no_antrian = 1;
+        } else {
+            $no_antrian = $no_antrian_sekarang + 1;
+        }
     } else {
         $total_data = 0;
         $no_antrian = $total_data + 1;
     }
 } else {
     $selectedValue = "PLGG";
+    $no_antrian = 1;
 }
+
 $tanggal_sekarang = date('Y-m-d');
-$new_date = date("Y-m-d", strtotime($tanggal_sekarang));
-$tanggal_besok = date('m-d-Y', strtotime('+1 day'));
+// jika no_antrian lebih dari 15, tanggal akan diisi tanggal besok
+if ($no_antrian > 15) {
+    $new_date = date('Y-m-d', strtotime('+1 day'));
+} else {
+    $new_date = $tanggal_sekarang;
+}
+
 $nik = $_SESSION['nik'];
 ?>
 
@@ -48,25 +71,25 @@ $nik = $_SESSION['nik'];
                 <label for="">Pilih poli</label>
                 <select name="poli" id="poli">
                     <option disabled>Pilih POLI UNTUK MENDAPAT ANTRIAN</option>
-                    <option value="PLGG" <?php if ($selectedValue == "PLGG") echo "selected"; ?>>PLGG</option>
+                    <option value="PLGG" <?php if ($selectedValue == "PLGG") echo "selected"; ?>>PLGG : Poli Gigi</option>
                     <option value="PLUM" <?php if ($selectedValue == "PLUM") echo "selected"; ?>>PLUM</option>
                     <option value="PLIM" <?php if ($selectedValue == "PLIM") echo "selected"; ?>>PLIM</option>
                     <option value="PLAN" <?php if ($selectedValue == "PLAN") echo "selected"; ?>>PLAN</option>
                 </select>
+                <p style="font-size:14px; color: red; text-align:center;">tolong pilih poli hingga No antrian anda tampil !!!</p>
             </div>
             <div>
                 <label for="">No Antrian</label>
                 <input type="text" name="no_antrian" id="no_antrian" value="<?= isset($no_antrian) ? $no_antrian : '' ?>" readonly>
             </div>
             <div>
-                <input type="text" name="nik" id="nama" value="<?= $nik ?>">
+                <input type="text" name="nik" id="nama" value="<?= $nik ?>" hidden>
             </div>
             <div>
-                <input type="text" name="tanggal" id="tanggal" value="<?= $new_date  ?>">
+                <input type="text" name="tanggal" id="tanggal" value="<?= $new_date  ?>" hidden>
             </div>
             <div class="btn_antrian">
                 <button type="submit">Ambil Antrian</button>
-                <a href="#">Cetak</a>
                 <a class="kembali" href="../login/">X</a>
             </div>
         </form>

@@ -60,7 +60,7 @@ $role = "user";
             <div>
                 <label for="role">Role</label>
                 <select name="role" id="">
-                    <option value="user">user</option>
+                    <option value="pasien">pasien</option>
                     <?php
                     if ($role == "admin") { ?>
                         <option value="admin">admin</option>

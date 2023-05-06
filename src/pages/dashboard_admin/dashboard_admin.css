@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.navbar nav{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: rgba(107, 110, 88, 1);
+    color: rgba(255, 255, 255, 0.7);
+}
+.navbar nav .profil{
+    display: flex;
+    align-items: center;
+}
+.navbar nav h1, a{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+.navbar nav .profil img{
+    width: 18px;
+}
+.content{
+    display: flex;
+    height: 100%;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    height: 100%;
+}
+.sidebar .menu{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    background-color: rgba(41, 42, 37, 0.81);
+    height: 100%;
+}
+.sidebar .menu a{
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+.main-content{
+    width: 100%;
+    padding: 50px 50px;
+    box-sizing: border-box;
+}
+.main-content .home{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.main-content .home .card-poli{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.main-content .home .card-poli .card-antrian{
+    width: 241px;
+    height: 173px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+    padding-right: 30px;
+    background-color: rgba(213, 208, 208, 1);
+    border-radius: 15px;
+}
+.main-content .home .card-poli .card-antrian h1, .tabel-pasien h1{
+margin-bottom: 15px;
+}
+.main-content .home .card-poli .card-antrian p{
+font-size: 24px;
+}
+.table-data-pasien{
+    border-collapse: collapse;
+    width: 100%;
+}
+.table-data-pasien, th, td {
+    border: 1px solid #635f5f;
+    padding: 8px 20px;
+}
+.table-data-pasien thead{
+    background-color: rgba(207, 203, 203, 0.72);
+}
+
+.table-data-pasien .body-tabel{
+    background-color: rgba(249, 249, 249, 0.72);
+}
+.table-data-pasien{
+    margin-bottom: 20px;
+}
+.pagination{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tabel-pasien .pagination .sebelumnya, .selanjutnya {
+    padding: 8px 10px;
+    background-color: #999;
+    box-sizing: border-box;
+    color: #ffffff;
+    border-radius: 40px;
+
+}
+.pagination .selanjutnya{
+    background-color: rgb(23, 150, 23);
+}
+.pagination span{
+    cursor: not-allowed;
+}
+.tambah{
+    background-color: rgba(239, 239, 239, 1);
+    width: 100%;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tambah a{
+color: rgba(0, 0, 0, 1);
+display: flex;
+align-items: center;
+
+}
+
+.container-tambah-pasien{
+    width: 100%;
+    
+}
+.container-tambah-pasien .edit-user{
+    width: 100%;
+    background-color: rgba(239, 239, 239, 1);
+    padding: 10px 40px;
+    box-sizing: border-box;
+}
+
+
+.container-tambah-pasien .form-tambah-user{
+    width: 100%;
+    background-color: rgba(251, 251, 251, 0.829);
+    padding: 40px;
+    box-sizing: border-box;
+}
+.container-tambah-pasien .form-tambah-user table{
+    width: 100%;
+    border-collapse: collapse;
+    border:  solid transparent;
+}
+.container-tambah-pasien .form-tambah-user table tr{
+    width: 100%;
+    border-collapse: collapse;
+        border: solid transparent;
+}
+.container-tambah-pasien .form-tambah-user table td{
+    border-collapse: collapse;
+        border: solid transparent;
+}
+.container-tambah-pasien .form-tambah-user table tr .label{
+    width: 200px;
+}
+.container-tambah-pasien .form-tambah-user table tr input{
+    width: 454px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgb(187, 183, 183);
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+.container-tambah-pasien .form-tambah-user table tr textarea{
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgb(187, 183, 183);
+    padding: 15px;
+    box-sizing: border-box;
+}
+.container-tambah-pasien .form-tambah-user table tr select{
+    width: 454px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgb(187, 183, 183);
+}
+.container-tambah-pasien .btn-login button{
+    cursor: pointer;
+    width: 77px;
+    height: 26px;
+    background-color: rgba(197, 197, 197, 1);
+    border-radius: 7px;
+    border: none;
+}

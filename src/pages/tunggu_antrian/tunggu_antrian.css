@@ -19,6 +19,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 10px;
 }
 .antrian{
     width: 100%;
@@ -35,4 +36,29 @@ h1{
 }
 .antrian hr{
     margin-bottom: 10px;
+}
+a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 250px;
+    height: 35px;
+    border-radius: 40px;
+    border: 1px solid rgba(56, 54, 10, 1);
+    background-color: rgba(255, 247, 49, 1);
+    color: rgba(56, 54, 10, 1);
+    font-weight: bold;
+    margin-top: 15px;
+}
+.btn-keluar{
+    background-color: rgb(236, 18, 84);
+    color: white;
+}
+.btn-keluar:hover{
+    background-color: rgb(189, 17, 68);
+}
+a:hover{
+    background-color: rgb(228, 221, 14);
 }
