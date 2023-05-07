@@ -58,7 +58,6 @@ $html = '<!DOCTYPE html>
                 <th>ALAMAT</th>
                 <th>NO TELP</th>
                 <th>USERNAME</th>
-                <th>ROLE</th>
             </tr>
         </thead>
 ';
@@ -74,7 +73,6 @@ if (mysqli_num_rows($result) > 0) {
         $html .= '<td>' . $row["alamat"] . '</td>';
         $html .= '<td>' . $row["no_telp"] . '</td>';
         $html .= '<td>' . $row["username"] . '</td>';
-        $html .= '<td>' . $row["role"] . '</td>';
         $html .= '</tr>';
     }
 } else {

@@ -7,9 +7,11 @@
 .container{
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: 100vh;
 }
 .navbar nav{
+    width: 100%;
     display: flex;
     box-sizing: border-box;
     justify-content: space-between;
@@ -32,36 +34,44 @@
 .content{
     display: flex;
     height: 100%;
+    box-sizing: border-box;
 }
+
 .sidebar{
     display: flex;
     flex-direction: column;
-    width: 265px;
+    width: 20%;
     height: 100%;
 }
+
 .sidebar .menu{
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
     background-color: rgba(41, 42, 37, 0.81);
     height: 100%;
+    box-sizing: border-box;
 }
+
 .sidebar .menu a{
     margin-bottom: 20px;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 500;
 }
+
 .main-content{
     width: 100%;
     padding: 50px 50px;
     box-sizing: border-box;
 }
+
 .main-content .home{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .main-content .home .card-poli{
     width: 100%;
     margin-top: 50px;
@@ -69,6 +79,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .main-content .home .card-poli .card-antrian{
     width: 241px;
     height: 173px;
@@ -82,20 +93,47 @@
     background-color: rgba(213, 208, 208, 1);
     border-radius: 15px;
 }
+
+.tabel-pasien{
+    width: 100%;
+}
+
 .main-content .home .card-poli .card-antrian h1, .tabel-pasien h1{
 margin-bottom: 15px;
 }
+
 .main-content .home .card-poli .card-antrian p{
 font-size: 24px;
 }
-.table-data-pasien{
+
+.tabel-pasien .table-data-pasien{
     border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+    table-layout: fixed;
+}
+.tabel-pasien .table-data-pasien tbody{
+overflow: scroll;
+}
+
+.tabel-pasien .table-data-pasien {
+    border: 1px solid #635f5f;
+    padding: 8px 30px;
+    box-sizing: border-box;
     width: 100%;
 }
-.table-data-pasien, th, td {
-    border: 1px solid #635f5f;
-    padding: 8px 20px;
+.tabel-pasien .table-data-pasien tr, td, th {
+    border: 1px solid #979595;
+    padding: 2px 18px;
+    overflow-x: scroll;
 }
+.tabel-pasien .table-data-pasien td {
+font-size: 10px;
+}
+
+
+
+
 .table-data-pasien thead{
     background-color: rgba(207, 203, 203, 0.72);
 }
@@ -103,15 +141,14 @@ font-size: 24px;
 .table-data-pasien .body-tabel{
     background-color: rgba(249, 249, 249, 0.72);
 }
-.table-data-pasien{
-    margin-bottom: 20px;
-}
+
 .pagination{
     width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .tabel-pasien .pagination .sebelumnya, .selanjutnya {
     padding: 8px 10px;
     background-color: #999;
@@ -120,12 +157,14 @@ font-size: 24px;
     border-radius: 40px;
 
 }
+
 .pagination .selanjutnya{
     background-color: rgb(23, 150, 23);
 }
 .pagination span{
     cursor: not-allowed;
 }
+
 .tambah{
     background-color: rgba(239, 239, 239, 1);
     width: 100%;
@@ -146,6 +185,7 @@ align-items: center;
     width: 100%;
     
 }
+
 .container-tambah-pasien .edit-user{
     width: 100%;
     background-color: rgba(239, 239, 239, 1);
@@ -160,23 +200,28 @@ align-items: center;
     padding: 40px;
     box-sizing: border-box;
 }
+
 .container-tambah-pasien .form-tambah-user table{
     width: 100%;
     border-collapse: collapse;
     border:  solid transparent;
 }
+
 .container-tambah-pasien .form-tambah-user table tr{
     width: 100%;
     border-collapse: collapse;
         border: solid transparent;
 }
+
 .container-tambah-pasien .form-tambah-user table td{
     border-collapse: collapse;
         border: solid transparent;
 }
+
 .container-tambah-pasien .form-tambah-user table tr .label{
     width: 200px;
 }
+
 .container-tambah-pasien .form-tambah-user table tr input{
     width: 454px;
     height: 22px;
@@ -185,18 +230,21 @@ align-items: center;
     padding: 15px 10px;
     box-sizing: border-box;
 }
+
 .container-tambah-pasien .form-tambah-user table tr textarea{
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgb(187, 183, 183);
     padding: 15px;
     box-sizing: border-box;
 }
+
 .container-tambah-pasien .form-tambah-user table tr select{
     width: 454px;
     height: 22px;
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgb(187, 183, 183);
 }
+
 .container-tambah-pasien .btn-login button{
     cursor: pointer;
     width: 77px;

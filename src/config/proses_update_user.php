@@ -11,6 +11,7 @@ if (isset($_POST['update_pasien'])) {
     $no_telp = $_POST['no_telp'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
     // update data pasien
@@ -18,7 +19,7 @@ if (isset($_POST['update_pasien'])) {
 
     // update password jika tidak kosong
     if (!empty($password)) {
-        $sql .= ", password='$password'";
+        $sql .= ", password='$password_hash'";
     }
 
     $sql .= " WHERE nik='$nik'";

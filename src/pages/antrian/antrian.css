@@ -79,10 +79,7 @@
     font-weight: bold;
 }
 .btn_antrian .kembali {
-    width: 35px;
-        height: 35px;
-    position: fixed;
-    top: 250px;
+    width: 100px;
     background-color: rgb(230, 50, 19);
     color: rgb(255, 255, 255);
 }

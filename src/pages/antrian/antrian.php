@@ -32,10 +32,12 @@ if (isset($_SESSION['poli'])) {
     } else {
         $total_data = 0;
         $no_antrian = $total_data + 1;
+        $_SESSION['no_antrian'] = $no_antrian;
     }
 } else {
     $selectedValue = "PLGG";
     $no_antrian = 1;
+    $_SESSION['no_antrian'] = $no_antrian;
 }
 
 $tanggal_sekarang = date('Y-m-d');
@@ -72,9 +74,9 @@ $nik = $_SESSION['nik'];
                 <select name="poli" id="poli">
                     <option disabled>Pilih POLI UNTUK MENDAPAT ANTRIAN</option>
                     <option value="PLGG" <?php if ($selectedValue == "PLGG") echo "selected"; ?>>PLGG : Poli Gigi</option>
-                    <option value="PLUM" <?php if ($selectedValue == "PLUM") echo "selected"; ?>>PLUM</option>
-                    <option value="PLIM" <?php if ($selectedValue == "PLIM") echo "selected"; ?>>PLIM</option>
-                    <option value="PLAN" <?php if ($selectedValue == "PLAN") echo "selected"; ?>>PLAN</option>
+                    <option value="PLUM" <?php if ($selectedValue == "PLUM") echo "selected"; ?>>PLUM : Poli Umum</option>
+                    <option value="PLIM" <?php if ($selectedValue == "PLIM") echo "selected"; ?>>PLIM : Poli Imunisasi</option>
+                    <option value="PLAN" <?php if ($selectedValue == "PLAN") echo "selected"; ?>>PLAN : Poli Anak</option>
                 </select>
                 <p style="font-size:14px; color: red; text-align:center;">tolong pilih poli hingga No antrian anda tampil !!!</p>
             </div>
@@ -90,7 +92,7 @@ $nik = $_SESSION['nik'];
             </div>
             <div class="btn_antrian">
                 <button type="submit">Ambil Antrian</button>
-                <a class="kembali" href="../login/">X</a>
+                <a class="kembali" href="../dashboard_user/">kembali</a>
             </div>
         </form>
 

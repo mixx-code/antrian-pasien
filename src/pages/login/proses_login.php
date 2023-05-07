@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $row['username'];
             $_SESSION['role'] = $row['role'];
 
+
             // redirect ke halaman utama setelah login
             echo "<script>alert('Selamat datang " . $username . " 🫡')</script>";
             if ($role  == 'admin') {

@@ -41,27 +41,29 @@ $result = mysqli_query($conn, $sql);
                 <th>ACTION</th>
             </tr>
         </thead>
-        <?php if (mysqli_num_rows($result) > 0) : ?>
-            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                <tr class="body-tabel">
-                    <td><?= $row["nik"] ?></td>
-                    <td><?= $row["nama"] ?></td>
-                    <td><?= $row["jenis_kelamin"] ?></td>
-                    <td><?= $row["tanggal_lahir"] ?></td>
-                    <td><?= $row["alamat"] ?></td>
-                    <td><?= $row["no_telp"] ?></td>
-                    <td><?= $row["username"] ?></td>
-                    <td><?= $row["role"] ?></td>
-                    <td style="text-align:center;"><a style="margin-right: 20px;" href="../../pages/dashboard_admin/?page=edit-user&nik=<?= $row["nik"] ?>"><img src="../../../assets/images/pensil.png" alt=""></a> <a style="color:red;" href="../../config/hapus_user.php?nik=<?= $row["nik"] ?>" onclick="return confirm(`Apa anda mau menghapus <?= $row['nama'] ?>`)"><img style="width: 18px;" src="../../../assets/images/hapus.png" alt=""></a>
-                    </td>
-                </tr>
+        <tbody>
+            <?php if (mysqli_num_rows($result) > 0) : ?>
+                <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                    <tr class="body-tabel">
+                        <td><?= $row["nik"] ?></td>
+                        <td><?= $row["nama"] ?></td>
+                        <td><?= $row["jenis_kelamin"] ?></td>
+                        <td><?= $row["tanggal_lahir"] ?></td>
+                        <td><?= $row["alamat"] ?></td>
+                        <td><?= $row["no_telp"] ?></td>
+                        <td><?= $row["username"] ?></td>
+                        <td><?= $row["role"] ?></td>
+                        <td style="text-align:center;"><a style="margin-right: 20px;" href="../../pages/dashboard_admin/?page=edit-user&nik=<?= $row["nik"] ?>"><img src="../../../assets/images/pensil.png" alt=""></a> <a style="color:red;" href="../../config/hapus_user.php?nik=<?= $row["nik"] ?>" onclick="return confirm(`Apa anda mau menghapus <?= $row['nama'] ?>`)"><img style="width: 18px;" src="../../../assets/images/hapus.png" alt=""></a>
+                        </td>
+                    </tr>
 
-            <?php endwhile; ?>
-        <?php else : ?>
-            <tr>
-                <td colspan="8" style="text-align: center;">Data kosong</td>
-            </tr>
-        <?php endif; ?>
+                <?php endwhile; ?>
+            <?php else : ?>
+                <tr>
+                    <td colspan="8" style="text-align: center;">Data kosong</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
 
     </table>
     <div class="pagination">
