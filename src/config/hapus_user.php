@@ -10,4 +10,4 @@ $query = "DELETE FROM user WHERE nik='$nik'";
 mysqli_query($conn, $query);
 
 // Alihkan ke halaman utama
-header('location: /src/pages/dashboard_admin/?page=data-pasien');
+header('location: ../pages/dashboard_admin/?page=data-pasien');

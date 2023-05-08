@@ -122,7 +122,7 @@ overflow: scroll;
     box-sizing: border-box;
     width: 100%;
 }
-.tabel-pasien .table-data-pasien tr, td, th {
+.tabel-pasien .table-data-pasien .body-tabel, .tabel-pasien .table-data-pasien .body-tabel td, .tabel-pasien .table-data-pasien .body-tabel th {
     border: 1px solid #979595;
     padding: 2px 18px;
     overflow-x: scroll;

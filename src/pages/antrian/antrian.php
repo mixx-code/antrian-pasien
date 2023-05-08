@@ -12,10 +12,18 @@ if (isset($_SESSION['poli'])) {
     // tutup session
     session_write_close();
     // melakukan operasi lain jika key 'poli' sudah ada di dalam $_SESSION
-    $maksimal_antrian = "SELECT jumlah_maksimal FROM poli";
+    $maksimal_antrian = "SELECT jumlah_maksimal FROM poli WHERE poli ='$selectedValue'";
     $query = mysqli_query($conn, $maksimal_antrian);
     $data = mysqli_fetch_assoc($query);
     $jumlah_maksimal = $data['jumlah_maksimal'];
+    $antrian_terakhir = "SELECT no_antrian FROM antrian WHERE poli = '$selectedValue' ORDER BY tanggal_antrian DESC LIMIT 1";
+    $res = mysqli_query($conn, $antrian_terakhir);
+    if (mysqli_num_rows($res) > 0) {
+        $data2 = mysqli_fetch_assoc($res);
+        $data_antrian_terakhir = $data2['no_antrian'];
+    }else {
+        $data_antrian_terakhir = 1;
+    }
     $sql = "SELECT COUNT(*) AS total, no_antrian FROM antrian WHERE poli = '$selectedValue'";
     $result = mysqli_query($conn, $sql);
     // Mengambil jumlah data
@@ -25,15 +33,26 @@ if (isset($_SESSION['poli'])) {
         $no_antrian_sekarang = $row["no_antrian"];
         // jika no_antrian lebih dari 15 maka akan di mulai dari 1 lagi
         if ($no_antrian_sekarang >= $jumlah_maksimal) {
-            $no_antrian = 1;
+            $no_antrian = $data_antrian_terakhir + 1;
         } else {
-            $no_antrian = $no_antrian_sekarang + 1;
+            $no_antrian = 1;
         }
     } else {
         $total_data = 0;
         $no_antrian = $total_data + 1;
         $_SESSION['no_antrian'] = $no_antrian;
     }
+    
+    // Check if $data is null before accessing its data
+    if ($data !== null) {
+        $jumlah_maksimal = $data['jumlah_maksimal'];
+    } else {
+        // Handle null case
+        $jumlah_maksimal = 0;
+    }
+    
+    // Check if $data2 is null before accessing its data
+
 } else {
     $selectedValue = "PLGG";
     $no_antrian = 1;
@@ -66,7 +85,7 @@ $nik = $_SESSION['nik'];
 <body>
     <!-- <h1><?= $tanggal_sekarang ?></h1>
     <h1><?= $tanggal_besok ?></h1> -->
-
+    <?= $no_antrian; ?>
     <div class="container">
         <form class="form-antrian" action="proses_antrian.php" method="POST">
             <div>

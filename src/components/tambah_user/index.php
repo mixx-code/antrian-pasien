@@ -7,7 +7,7 @@ $role = $_SESSION['role'];
 <div class="container-tambah-pasien">
     <h1>Admin - Data Pasien</h1>
     <p class="edit-user">Tambah User</p>
-    <form class="form-tambah-user" action="../../pages/registrasi/proses_registrasi.php" method="POST">
+    <form class="form-tambah-user" action="../../config/proses_registrasi.php" method="POST">
         <table>
             <tr>
                 <td class="label"><label for="nik">Nik</label></td>
